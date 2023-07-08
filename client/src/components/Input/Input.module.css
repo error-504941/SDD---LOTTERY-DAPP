@@ -1,0 +1,25 @@
+.input-btn{
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    color: black;
+    background:white;
+    border: 3px solid  var(--btn-color);
+    border-radius: 25px;
+    line-height: 46px;
+    padding: 0 35px;
+}
+
+input {
+    display: none;
+    position: absolute;
+    top: 10px;
+}
+
+input:checked + label{
+    background: var(--btn-color);
+    color: white;
+}

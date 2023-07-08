@@ -1,0 +1,128 @@
+.innerHeader{
+    background: var(--main-color) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    height: 80px;
+}
+.flex-row{
+  display: flex; 
+    flex-direction: row;
+}
+.flex {
+    display: flex; 
+    flex-direction: row;
+    justify-content: end;
+}
+
+.rightSide{
+    display: flex;
+    justify-content: space-between;
+    border-left: 2px solid var(--border-color); 
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+/*userstrcuture*/
+.userwrap, .amountwrap{
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 20px;
+    font-size: 17px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  .amountvalue{
+    margin: 0 6px;
+  }
+
+  .userwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .amountwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .userwrap i {
+    width: 40px;
+  }
+  
+  .userwrap p {
+    color: black;
+    font-size: 33px;
+  }
+
+  .amountlabel{
+    color: grey;
+    font-size: 17px;
+  }
+  .amountlabel{
+    color: black;
+    font-size: 17px;
+  }
+
+
+ /*Tasto admin*/
+ .gearButton {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+ .btnLogin{
+  margin-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 50px;
+  font-size: 250x;
+  padding: 0 60px;
+  background-color: #fff;
+  color: black;
+
+} 
+
+
+  .userConnect {
+    display: flex;
+    justify-content: end;
+  }
+ 
+.sup{
+  position: relative;
+  top: 1px;
+  background: var(--main-color);
+  color: var(--app-background);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  left: 3px;
+}
+.sup span{
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  top: 4px;
+}
+
+.icon{
+  font-size: 24px !important;
+}
+.sideBorder{
+  border-left: 3px solid var( --third-color);
+  margin: 0 0 0 7px;
+}
+
+.group{
+    margin: 10px;
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+}

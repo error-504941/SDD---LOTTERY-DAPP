@@ -1,0 +1,12 @@
+.align{
+    text-align: center;
+}
+.title{
+    color: black;
+    position: relative;
+    top: -50px;
+
+}
+.label{
+    color: black;
+}

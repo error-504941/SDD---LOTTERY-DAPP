@@ -1,0 +1,104 @@
+
+
+.column {
+    flex: 1; 
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* .column:first-child > :last-child, .column:last-child > :first-child {
+    flex-grow: 2;
+} */
+
+.item {
+    background: white;
+    margin: 1em;
+    padding: 1em;
+    /* flex-grow: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.infolottery {
+    margin: 1em;
+    padding: 1em;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.8rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.collottery {
+    flex: 1 1 400px !important;
+}
+
+
+.cardsLottery{
+    /* padding: 0 100px;
+    padding-bottom: 30px; */
+}
+
+.cardsWinner{
+    /* padding-bottom: 30px; */
+}
+
+.cardsCounter{
+    padding: 40px 100px;
+}
+.cardsCounter h3{
+
+    display: none;
+}
+.winningList-container{
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    box-shadow: 0 0 2px #000;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.smallImage img{
+    width: 230px;
+    border-radius: 1rem;
+}
+
+.smallBanner img{
+    width: 160px;
+    border-radius: 1rem;
+    padding: 0.5rem 0;
+}
+
+.itemBanner {
+    background: var(--sidebar);
+    margin: 1em;
+    /* flex-grow: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+.bannerLabel:before{
+    content: "Buy to Win";
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin: 20px;
+}
+.lotto h3 {
+    display: none;
+}

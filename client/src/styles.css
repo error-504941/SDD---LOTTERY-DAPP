@@ -1,0 +1,43 @@
+:root{
+  --app-container: #f3f6fd;
+  --glowing-color: #dadde3;
+  --glowing-color-2: #c2c4ca;
+  --border-color: #c2c4ca;
+
+
+
+  /*palette*/
+  --main-color:#957dad;
+  --second-color:#9f8ab5;
+  --third-color:#aa97bd;
+  --forth-color:  #b4a4c5;
+  --fifth-color: #bfb1cd;
+  --sidebar:  #cabed6;
+  --shadow-color:  #d4cbde;
+  --secondary-color: #dfd8e6;
+  --shadow-secondary:  #e9e5ee;
+  --app-background:  #f4f2f6;
+  --red: #FF0000;
+  --dark-red: #e60000;
+
+  --btn-color: #C37DC7;
+  --btn-over: #d9aedb;
+
+
+  --font-style: 'Source Code Pro', monospace;
+
+  
+
+}
+
+  
+  /*body*/
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    background: var(--app-container) !important;
+  }

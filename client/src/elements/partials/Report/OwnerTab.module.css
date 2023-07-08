@@ -1,0 +1,94 @@
+.owner-content h2{
+    color: black;
+    font-family: var(--font-style);
+    font-size: 20px;
+    font-weight: 600;
+    position: absolute;
+    top: -16rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.date{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    top: -10rem;
+    left: 7rem;
+    gap: 7rem;
+}
+
+.date span{
+    color: black;
+    font-family: var(--font-style);
+    font-size: 14px;
+    font-weight: 400;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+}
+.label{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    top: -6em;
+    justify-content: space-evenly;
+
+}
+
+.label span{
+    color: black;
+    font-family: var(--font-style);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.center{
+    position: absolute;
+    left: 50%;
+    top: 6rem;
+    transform: translate(-50%, -50%);
+} 
+.small{
+    width: 200px;
+}
+
+.btn{
+    position: relative;
+    right: 8px;
+    top: 10px;
+}
+
+.bold{
+    font-weight: 300;
+    font-size: 15px;
+    font-family: var(--font-style);
+}
+.action{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 30px;
+}
+
+.container{
+    font-size: 14px;
+    background: var(--second-color);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 0px;
+    border-radius: 10px;
+}
+
+.message{
+    text-transform:none;
+    font-size: 17px;
+}
+
+

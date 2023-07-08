@@ -1,0 +1,9 @@
+.globBtn{
+  margin: 10px;
+  background: white;
+  padding: 12px;
+  border-radius: 20px;
+  }
+  .sizeIcon {
+    font-size: 24px !important;
+  }

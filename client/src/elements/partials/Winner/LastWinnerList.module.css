@@ -1,0 +1,65 @@
+
+h3 {
+    font-size: 14px;
+    background: var(--second-color);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 0px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.list_content{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.list_header{
+    font-weight: bold;
+    background: var(--sidebar);
+    color: #fff;
+    border-top: 1px solid var(--sidebar);
+    border-bottom: 1px solid var(--sidebar);
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 2px;
+}
+
+ul li span{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.list_header span{
+    border-right: 1px solid var(--sidebar);
+}
+
+.win {
+    flex-basis: 25%;
+}
+
+.ticket {
+    flex-basis: 50%;
+}
+
+.date{
+    flex-basis: 25%;
+}
+
+.margin{
+    margin-right: 10px;
+    margin-left: 10px;
+}

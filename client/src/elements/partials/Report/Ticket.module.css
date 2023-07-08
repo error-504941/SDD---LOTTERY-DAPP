@@ -1,0 +1,43 @@
+.table-wrap{
+        overflow:hidden;
+        overflow-y: scroll;
+        height: 500px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th, td span {
+    color: black;
+    text-align: center;
+}
+tbody tr:hover {background-color: coral;}
+
+.date{
+    display: flex;
+    flex-direction: column;
+}
+
+.open{
+    font-size: 13px;
+    color: grey;
+}
+
+.not-found{
+  border: 3px solid  var(--sidebar);
+  background-color: var(--shadow-color);
+}
+
+.not-found-label{
+  position: relative;
+  left: 34%;
+}

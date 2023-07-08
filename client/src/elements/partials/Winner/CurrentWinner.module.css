@@ -1,0 +1,25 @@
+
+.wrap{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+    background: var(--sidebar);
+    border-radius: 10px;
+}
+
+ul.Lottery-winner-details {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.Lottery-winner-details li{
+    list-style: none;
+    margin-right: 30px;
+    border: white;
+    background-color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    
+}

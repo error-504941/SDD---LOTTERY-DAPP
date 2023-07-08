@@ -1,0 +1,34 @@
+
+.card{
+  background: white;
+  margin: 1em;
+  padding: 1em;
+  /* flex-grow: 1; */
+  align-items: center;
+  border-radius: 0.75rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card .card__header{
+  margin-bottom: 0rem;
+  font-family: var(--font-style);
+  font-size: 18px;
+  background: var(--second-color);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 0px;
+}
+
+h3{
+  font-family: var(--font-style);
+    font-size: 19px;
+}
+
+.card .card__body{
+  font-family: var(--font-style);;
+}
+
