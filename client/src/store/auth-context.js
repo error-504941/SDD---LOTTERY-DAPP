@@ -77,18 +77,21 @@ export const AuthContexProvider = (props) =>{
         cb_connectWallet();
       }
     
-      useEffect(async () => {
+      useEffect(() => { 
+        async function fetchData() {
         window.ethereum.request({
         method: "eth_accounts",
-      });
-      const provider = new BrowserProvider(window.ethereum);
-      const signer = await provider.getSigner();
-      let connect = localStorage.getItem('isLoggedIn');
-      if(connect == 1 && signer.address != undefined){
+        });
+        const provider = new BrowserProvider(window.ethereum);
+        const signer = await provider.getSigner();
+        let connect = localStorage.getItem('isLoggedIn');
+        if(connect == 1 && signer.address != undefined){
         getUserContractInfo().then((response) =>{ 
             getbalance(signer.address, response);
         });
-      }
+        }
+        }
+        fetchData();
     
       }, []);
 

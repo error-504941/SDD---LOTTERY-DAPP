@@ -9,7 +9,8 @@ import { enterLottery } from '../../../contracts/LotteryContract';
 import Message from '../../../components/Message/Message'
 import Wrapper from '../../../components/Helpers/Wrapper'
 import { useLotteryBody, useTicketUser } from '../../../store/redux-lottery';
-const LotteryBody = (props) => {
+
+const LotteryBody = () => {
     const [openModal, setOpenModal] = useState(false);
     const [response, setResponse] = useState({
         message: '',
@@ -23,6 +24,7 @@ const LotteryBody = (props) => {
     useEffect(() =>{
         updateLottery();
     },[response]);
+
 
     const ctx = useContext(AuthContext);
     let startDate = moment(stateLotteryBody.start).format('DD/MM/YYYY hh:mm:ss');

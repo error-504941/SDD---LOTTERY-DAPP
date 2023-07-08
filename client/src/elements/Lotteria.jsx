@@ -1,64 +1,55 @@
-import React, {useEffect, useState } from 'react';
+import React, {useEffect} from 'react';
 import Header from './partials/Header/Header';
 import LeftBar from './partials/LeftBar';
 import RightBar from './partials/RightBar';
 import Center from './partials/Center';
- import {lotteryService, lotteryDate, lotteryState} from '../contracts/LotteryContract'
-import { useLottery } from '../store/redux-lottery';
+import { useLottery, useLotteryStatus, useLotteryBody } from '../store/redux-lottery';
+
 const Lotteria = () => {
-    // const [lotteryGeneric, setLotteryGeneric] = useState({
-    //     'ticketInfo': {},
-    //     'lastWinner':[]
-    // });
-    const stateLottery = useLottery();
+    const stateLottery = useLotteryStatus((state) => state.updateStatus);
     const updateLottery = useLottery((state) => state.updateLottery);
+    const updateLotteryBody = useLotteryBody((state) => state.updateLottery);
+   
+    const lottery = useLotteryBody();
+    const ticket = useLottery();
+    //mount point
+    useEffect(() =>{
+        updateLottery();
+        stateLottery();
+        updateLotteryBody();
+    }, []);
 
-    const [loading, setLoading] = useState(false);
+    //aggiorni la lotteria ogni 15 sec
+    useEffect(() =>{
+        const delayed = setTimeout(() =>{
+        updateLotteryBody();
 
-    const [lottery, setLottery] = useState({
-        'numTicket': 0,
-        'start': '',
-        'expiration': ''
+        }, 15000);
+
+        return () => clearTimeout(delayed);
     });
-
-    const [state, setState] = useState(1);
-    useEffect(()=>{
-        updateLottery();   
-
-        // lotteryDate().then((val)=>{
-        //     setLottery(val);
-        //     setLoading(false);
-        // });
-
-        // lotteryState().then( val =>{
-        //     setState(val);
-        // })
-
-    },[]);
 
 
     useEffect(() =>{
-        if(new Date() > lottery.expiration ){
-            lotteryState().then( val =>{
-                setState(val);
-            })
+        if(new Date() >= lottery.expiration){
+            stateLottery();
         }
     });
 
-  
+  console.log(ticket.lastWinner);
     return (
         <React.Fragment>
            {/* HEADER */} 
-           <Header lotteryState={state}/>
+           {/* <Header/> */}
            {/**CONTENT */}
            <div style={{
                 display: "flex",
                 height: "700px",
                 marginTop: "20px"
            }}>
-                <LeftBar ticketInfo={stateLottery.ticketInfo}/>
+                <LeftBar ticketInfo={ticket.ticketInfo}/>
                 <Center/>
-                <RightBar lastWinner={stateLottery.lastWinner} counter={lottery}/>
+                <RightBar lastWinner={ticket.lastWinner} counter={lottery.expiration}/>
             </div>
         </React.Fragment>
     );
