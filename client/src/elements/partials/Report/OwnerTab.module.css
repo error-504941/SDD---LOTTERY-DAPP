@@ -91,4 +91,35 @@
     font-size: 17px;
 }
 
+@media only screen and (max-device-width: 1000px) {
+
+    .date{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        left: 1rem;
+        gap: 1rem;
+    }
+
+    .label{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        position: relative;
+        top: -5em;
+        justify-content: space-evenly;
+        position: relative;
+        top:auto;
+    }
+    .action{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 30px;
+        position: relative;
+        top: 5rem;
+    }
+}
+
 

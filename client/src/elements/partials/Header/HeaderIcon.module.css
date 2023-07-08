@@ -7,3 +7,17 @@
   .sizeIcon {
     font-size: 24px !important;
   }
+
+  @media only screen and (max-device-width: 1000px) {
+    .globBtn{
+      margin: 5px;
+      background: white;
+      padding: 10px;
+      border-radius: 20px;
+   }
+   .centerIcon {
+    font-size: 30px !important;
+    position: relative;
+    top: 20%;
+  }
+  }

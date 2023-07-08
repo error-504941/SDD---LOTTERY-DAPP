@@ -83,7 +83,12 @@
     width: 900px;
     height: 600px;
   }
-
+  @media only screen and (max-device-width: 1000px) {
+    .default{
+      width: 90%;
+      height: 100%;
+    }
+  }
   .sizeIcon{
     font-size: 50px;
     color:black;

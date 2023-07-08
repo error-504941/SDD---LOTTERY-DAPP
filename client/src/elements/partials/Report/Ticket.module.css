@@ -41,3 +41,29 @@ tbody tr:hover {background-color: coral;}
   position: relative;
   left: 34%;
 }
+
+@media only screen and (max-device-width: 1000px) {
+  thead, tfoot {
+    display: none;
+  }
+  table {
+    background: none !important;
+    border: none !important;
+  }
+  tr {
+    display: inline-block;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 1.5rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    word-break: break-all;
+  }
+  td{
+    display: block;
+  }
+  th, td span {
+    color: black;
+    text-align: end;
+  }
+}

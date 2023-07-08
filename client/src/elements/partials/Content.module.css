@@ -43,15 +43,6 @@
 }
 
 
-.cardsLottery{
-    /* padding: 0 100px;
-    padding-bottom: 30px; */
-}
-
-.cardsWinner{
-    /* padding-bottom: 30px; */
-}
-
 .cardsCounter{
     padding: 40px 100px;
 }
@@ -101,4 +92,24 @@
 }
 .lotto h3 {
     display: none;
+}
+
+@media only screen and (max-device-width: 1000px) {
+    .lastElement{
+        order: 3;
+    }
+    .cardsCounter{
+        padding: 30px 70px;
+        position: relative;
+        top: -650px;
+    }
+    .collottery{
+        position: relative;
+        top: 180px;
+    }
+    @media (orientation: landscape) {
+        .cardsCounter{
+            top: -550px;
+        }
+    }
 }

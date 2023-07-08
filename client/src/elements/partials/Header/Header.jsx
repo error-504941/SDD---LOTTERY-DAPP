@@ -5,6 +5,7 @@ import Modal from '../../../components/Modal/Modal'
 import Wrapper from '../../../components/Helpers/Wrapper'
 import Report from '../Report/Report';
 import HeaderIcon from './HeaderIcon';
+import {isMobile} from '../../../utils/checkDevice'
 import { AuthContext } from '../../../store/auth-context';
 import { useTicketUser } from '../../../store/redux-lottery';
 const Header = (props) => {
@@ -18,9 +19,12 @@ const Header = (props) => {
         setParam(param);
     }
 
+    const mobile = isMobile();
     const onCloseHandler = () =>{
        setOpenModal(false);
     }
+    let balance = +ctx.isLoggedIn.balance;
+    let account = ctx.isLoggedIn.address.substring(0, 10);
     return (
         <Wrapper>
            { openModal && 
@@ -40,7 +44,7 @@ const Header = (props) => {
                 <div className={`${classes.userConnect}`}>
                         <div className={`${classes.leftSide}`}>
                             {ctx.isLoggedIn.owner ? 
-                                <HeaderIcon icons="bx bxs-cog" className={classes.gearButton} onClick={() => openModalHandler("dash")}/>
+                                <HeaderIcon icons="bx bxs-cog" centerIcon={true} className={classes.gearButton} onClick={() => openModalHandler("dash")}/>
                                 :
                                 <div className={`${classes['flex-row']} ${classes.group}`}>
                                     <HeaderIcon
@@ -61,18 +65,25 @@ const Header = (props) => {
                             }
                         </div>
                         <div className={`${classes.rightSide}`}>
+                           {!mobile ?  
                             <div className={`${classes.flex}`}>
                                 <HeaderIcon icons="bx bxs-user-circle" className={classes.userwrap}>
-                                <span>{ctx.isLoggedIn.address}</span>
+                                <span className={classes.userIcon}>{ctx.isLoggedIn.address}</span>
                                 </HeaderIcon>
                                 <HeaderIcon icons="bx bxs-wallet" className={classes.amountwrap}>
                                     <div className={classes.wallet}>
-                                        <span className={`${classes.amountvalue}`}>{ctx.isLoggedIn.balance}</span>
+                                        <span className={`${classes.amountvalue}`}>{balance.toFixed(2)}</span>
                                         <span className={`${classes.amountlabel}`}>ETH</span>
                                     </div>
                                 </HeaderIcon>
-                            </div>
-                            <HeaderIcon icons="bx bx-log-out-circle" className={[classes.flex, classes.btnConnect ].join(" ")} onClick={ctx.onLogout}/>
+                            </div> : 
+                            <div className={`${classes.flex}`}>
+                                <HeaderIcon icons="bx bxs-user-circle" className={classes.userwrap}>
+                                <span className={classes.userIconSmall}>{account}...</span>
+                                <span className={`${classes.amountvalue}`}>{balance.toFixed(2)}ETH</span>
+                                </HeaderIcon>
+                            </div>}
+                            <HeaderIcon icons="bx bx-log-out-circle"  centerIcon={true} className={[classes.flex, classes.btnConnect ].join(" ")} onClick={ctx.onLogout}/>
                         </div>
                 </div>}
             </div>

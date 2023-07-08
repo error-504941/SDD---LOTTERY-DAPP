@@ -5,6 +5,7 @@ import { pickWinner, startLotteryService } from '../../../contracts/LotteryContr
 import { PieChart } from 'react-minimal-pie-chart';
 import classes from './OwnerTab.module.css'
 import Message from '../../../components/Message/Message';
+import {isMobile} from '../../../utils/checkDevice'
 import { useLotteryStatus } from '../../../store/redux-lottery';
 import { useLotteryBody, useOwnerReport } from '../../../store/redux-lottery';
 
@@ -21,6 +22,8 @@ const OwnerTab = () => {
     const state = useLotteryStatus();
     const updateStatus = useLotteryStatus((state) => state.updateStatus);
     const updateLottery = useLotteryBody((state) => state.updateLottery); 
+
+    const mobile = isMobile();
 
     useEffect(() =>
     {
@@ -95,14 +98,14 @@ const OwnerTab = () => {
                  <span>Commissioni: {state.status == 0 ? ownerReport.data[0].commission : '---'} ETH</span>
              </div> 
              <div className={`${classes.small} ${classes.center}`}>
-                    {ownerReport.data[0].currentWinningReward > 0  && ownerReport.data[0].totalTicket > 20 ?
+                    {(ownerReport.data[0].currentWinningReward > 0  && ownerReport.data[0].totalTicket > 20) ?
                           <PieChart
                              data={[
                                  { title: 'Commissione', value: ownerReport.data[0].commission, color: '#E38627' },
                                  { title: 'Vincita', value: ownerReport.data[0].currentWinningReward, color: '#C13C37' }
                              ]}
                           /> : 
-                         <div className={classes['container']} style={{marginBottom:"60px"}}>
+                        !mobile && <div className={classes['container']} style={{marginBottom:"60px"}}>
                              <span className={classes.message}>Dati non sufficienti per generare un grafico</span>
                          </div>
                     }
