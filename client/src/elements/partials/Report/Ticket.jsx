@@ -1,19 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import moment from 'moment';
+import { useTicket } from '../../../store/redux-lottery';
 import classes from './Ticket.module.css'
+import Loader from '../../../components/Loader/Loader';
 const Ticket = (props) => {
-    console.log(props);
+    const loadTicket = useTicket((state) => state.updateTicket);
+    const ticket = useTicket();
+
+
+    useEffect(() =>{
+        loadTicket();
+    }, []);
+
     let item;
-    if(props.type == "win"){
-        item = [...props.data[0].winningTicket];
-    }
     
-    if(props.type == "all"){
-        item = [...props.data[0].allTicket];
+    if(!ticket.loading){
+        if(props.type == "win"){
+            item = [...ticket.winningTicket];
+        }
+        
+        if(props.type == "all"){
+            item = [...ticket.allTicket];
+        }
     }
     let col = props.type == "win" ? 4 : 3;
     return (
         <div className={classes['table-wrap']}>
+            {ticket.loading ? <Loader/> :
             <table>
                 <thead>
                     <tr className={classes.header}>
@@ -46,6 +59,7 @@ const Ticket = (props) => {
                         </tr>}
                 </tbody>
             </table>
+        }
         </div>
     );
 };

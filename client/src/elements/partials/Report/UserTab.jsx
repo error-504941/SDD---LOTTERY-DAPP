@@ -4,7 +4,7 @@ import classes from './UserTab.module.css'
 import Ticket from './Ticket';
 
 const UserTab = (props) => {
-    const [input, setInput] = useState(props.data.type);
+    const [input, setInput] = useState(props.type);
 
     const onChangeHandler = (e) =>{
         setInput(e.target.value);
@@ -27,7 +27,7 @@ const UserTab = (props) => {
                     checked ={input == "win"}
                     label="Vincenti"/>
             </div>
-            <Ticket data={props.data.data} type={input}/>   
+            <Ticket type={input}/>   
        </React.Fragment>
     );
 };

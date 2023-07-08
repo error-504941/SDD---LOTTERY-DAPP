@@ -6,39 +6,16 @@ import Wrapper from '../../../components/Helpers/Wrapper'
 import Report from '../Report/Report';
 import HeaderIcon from './HeaderIcon';
 import { AuthContext } from '../../../store/auth-context';
-import { ownerInformationLottery, getTickets } from '../../../contracts/LotteryContract';
 import { useTicketUser } from '../../../store/redux-lottery';
 const Header = (props) => {
     const ctx = useContext(AuthContext);
     const [openModal, setOpenModal] = useState(false);
-    const [loader, setLoader] = useState(false);
-    const [dataReport, setDataReport] = useState({
-        data: [],
-        type: ''
-    });
+    const [param, setParam] = useState('');
     const ticket = useTicketUser();
+    
     const openModalHandler = (param) =>{
-        setLoader(true);
-        if(ctx.isLoggedIn.connect){
-            if(ctx.isLoggedIn.owner){
-                ownerInformationLottery().then((value)=> {
-                    setDataReport(value.data);
-                    setOpenModal(true);
-                    setLoader(false);
-                });
-            }else{
-                getTickets().then((value) =>{
-                    setDataReport(prev =>{
-                        return({
-                            data:[value],
-                            type:param
-                        });
-                    });
-                    setOpenModal(true);
-                    setLoader(false);
-                });
-            }
-        }
+        setOpenModal(true);
+        setParam(param);
     }
 
     const onCloseHandler = () =>{
@@ -49,7 +26,7 @@ const Header = (props) => {
            { openModal && 
             <Modal
                 closeModal={onCloseHandler}>
-                <Report data={dataReport} onClose={onCloseHandler} state={props.lotteryState}/>
+                <Report param={param} onClose={onCloseHandler} state={props.lotteryState}/>
             </Modal>
             }
             <div className='app-header'>
@@ -63,7 +40,7 @@ const Header = (props) => {
                 <div className={`${classes.userConnect}`}>
                         <div className={`${classes.leftSide}`}>
                             {ctx.isLoggedIn.owner ? 
-                                <HeaderIcon icons="bx bxs-cog" className={classes.gearButton} onClick={openModalHandler}/>
+                                <HeaderIcon icons="bx bxs-cog" className={classes.gearButton} onClick={() => openModalHandler("dash")}/>
                                 :
                                 <div className={`${classes['flex-row']} ${classes.group}`}>
                                     <HeaderIcon

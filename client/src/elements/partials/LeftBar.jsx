@@ -4,7 +4,6 @@ import classes from './Content.module.css'
 import InfoLottery from '../partials/Lottery/InfoLottery'
 import winLottery from '../../assets/win.jpg'
 const LeftBar = (props) => {
-    console.log(props);
     return (
         <div className={classes.column}>
             <div style={{order: 1}}>

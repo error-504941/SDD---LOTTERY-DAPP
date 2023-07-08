@@ -1,10 +1,15 @@
 import { create } from 'zustand'
-import { lotteryService, lotteryState, lotteryDate, getTotalTicketsV2 } from '../contracts/LotteryContract';
+import { 
+  lotteryService, 
+  lotteryState, 
+  lotteryDate, 
+  getTotalTicketsV2,
+  ownerInformationLottery,
+  getTickets } from '../contracts/LotteryContract';
 
 export const useLotteryStatus = create((set) => ({
   status: 0,
   updateStatus: () => lotteryState().then(val =>{set((state) => ({ status: val }))}),
-  removeAllBears: () => set({ bears: 0 }),
 }))
 
 export const useLottery = create((set) =>({
@@ -46,3 +51,29 @@ export const useTicketUser = create((set) =>({
     }
   ))})
 }))
+
+export const useOwnerReport = create((set) =>({
+  loading:true,
+    data:[],
+    errors:[],
+  updateOwner: () => ownerInformationLottery().then(value =>{set((state) => (
+    {
+      loading: false,
+      data: value.data,
+      errors:value.errors
+    }
+    ))})
+  }))
+
+  export const useTicket = create((set) =>({
+    loading:true,
+    allTicket:[],
+    winningTicket:[],
+    updateTicket: () => getTickets().then(value =>{set((state) => (
+      {
+        loading: false,
+        allTicket: value.allTicket,
+        winningTicket: value.winningTicket,
+      }
+      ))})
+    }))

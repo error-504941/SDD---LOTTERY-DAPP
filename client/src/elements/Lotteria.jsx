@@ -35,12 +35,11 @@ const Lotteria = () => {
             stateLottery();
         }
     });
-
-  console.log(ticket.lastWinner);
+    
     return (
         <React.Fragment>
            {/* HEADER */} 
-           {/* <Header/> */}
+            <Header/>
            {/**CONTENT */}
            <div style={{
                 display: "flex",

@@ -34,7 +34,6 @@ const OwnerTab = () => {
             return;
         }
         startLotteryService().then(value => {
-            console.log(value);
             updateStatus();
             updateLottery();
         });

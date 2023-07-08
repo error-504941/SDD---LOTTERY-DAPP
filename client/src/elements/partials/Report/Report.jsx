@@ -7,8 +7,8 @@ const Report = (props) => {
     const ctx = useContext(AuthContext);
     return (
         <div>
-            {ctx.isLoggedIn.owner && <OwnerTab data={props.data} state={props.state}onClose={props.onClose}/>}
-            {!ctx.isLoggedIn.owner && <UserTab data={props.data} onClose={props.onClose}/>}
+            {ctx.isLoggedIn.owner && <OwnerTab/>}
+            {!ctx.isLoggedIn.owner && <UserTab type={props.param}/>}
         </div>
     );
 };
