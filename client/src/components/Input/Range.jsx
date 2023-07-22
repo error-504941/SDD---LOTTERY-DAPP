@@ -1,15 +1,17 @@
 import React from 'react';
-import classes from './Input.module.css'
-const Input = (props) => {
+import classes from './Range.module.css'
+const Range = (props) => {
 
     return (
-        <div className={`${classes['radio-btn']} ${props.classes}`}>
-            <input 
+        <div className={`${props.classes}`}>
+            <input
                 type={props.type}
                 id={props.id} 
                 name={props.name} 
                 value={props.value} 
                 checked={props.checked} 
+                min={props.min}
+                max={props.max}
                 onChange={props.onChange}/>
             <label className={`${classes['input-btn']}`} htmlFor={props.id}>{props.label || props.children}</label>
         </div>
@@ -17,4 +19,4 @@ const Input = (props) => {
     );
 };
 
-export default Input;
+export default Range;

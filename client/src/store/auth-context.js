@@ -3,6 +3,8 @@ import { ethers } from "ethers";
 import { BrowserProvider } from "ethers";
 import { getUserContractInfo} from "../contracts/LotteryContract";
 import { useTicketUser } from './redux-lottery';
+import { ttl } from "../utils/constanst";
+
 export const AuthContext = React.createContext({
     isLoggedIn: {
         address:'',    // Stores address
@@ -15,7 +17,8 @@ export const AuthContext = React.createContext({
         winningTicket: 0
     },
     onLogout : () => {},
-    onLogin : () => {}
+    onLogin : () => {},
+    onUpdateBalance : () =>{}
 });
 
 
@@ -36,8 +39,22 @@ export const AuthContexProvider = (props) =>{
                 getUserContractInfo().then((response) =>{ 
                     getbalance(res[0], response);
                 }) ;
-                localStorage.setItem('isLoggedIn', '1');  
-            });
+                const now = new Date();
+                const item = {
+                    value : 1,
+                    expiry: now.getTime() + ttl
+                }
+                localStorage.setItem('isLoggedIn', JSON.stringify(item));  
+            })
+            .catch((err) => {
+                if (err.code === 4001) {
+                // EIP-1193 userRejectedRequest error
+                // If this happens, the user rejected the connection request.
+                console.log('Please connect to MetaMask.');
+                } else {
+                console.error(err);
+                }
+                });
         }else {
             alert("install metamask extension!!");
         }
@@ -67,42 +84,59 @@ export const AuthContexProvider = (props) =>{
     };
 
 
-    useEffect(() => {
-        const storedUserLoggedIn = localStorage.getItem('isLoggedIn');
-        if(storedUserLoggedIn === '1'){
-        }
-    }, []);
 
     function handleAccountsChanged(accounts) {
         cb_connectWallet();
       }
-    
-      useEffect(() => { 
-        async function fetchData() {
-        window.ethereum.request({
-        method: "eth_accounts",
-        });
-        const provider = new BrowserProvider(window.ethereum);
-        const signer = await provider.getSigner();
-        let connect = localStorage.getItem('isLoggedIn');
-        if(connect == 1 && signer.address != undefined){
-        getUserContractInfo().then((response) =>{ 
-            getbalance(signer.address, response);
-        });
-        }
-        }
-        fetchData();
-    
-      }, []);
 
     useEffect(() => {
-        window.ethereum.on('accountsChanged', handleAccountsChanged);
+        if (window.ethereum) {
+            window.ethereum.on('accountsChanged', handleAccountsChanged);
 
-        return () => {
-            window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+            return () => {
+                window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+            }
         }
-      }, [])
+      }, []);
+
+    const fetchData = async () =>{
+        if(window.ethereum){
+            let connect = localStorage.getItem('isLoggedIn');
+            console.log(connect);
+            if(!connect){
+                return;
+            }
+            window.ethereum.request({method: "eth_accounts",});
+            const provider = new BrowserProvider(window.ethereum);
+            const signer = await provider.getSigner();
+
+
+            const item = JSON.parse(connect);
+            console.log(item);
+            const now = new Date();
+            if(now.getTime() > item.expiry){
+                localStorage.removeItem('isLoggedIn');
+                return;
+            }
+            
+            if(signer.address != undefined &&  item.value == 1){
+                getUserContractInfo().then((response) =>{ 
+                    getbalance(signer.address, response);
+                });
+
+                const now = new Date();
+                const item = {
+                    value : 1,
+                    expiry: now.getTime() + ttl
+                }
+                localStorage.setItem('isLoggedIn', JSON.stringify(item));  
+            }
+        }
+    }
     
+      useEffect(() => { 
+        fetchData(); 
+    }, []);
 
     const logoutHandler = () =>{
         if (window.ethereum.isConnected()) {
@@ -123,6 +157,7 @@ export const AuthContexProvider = (props) =>{
     return<AuthContext.Provider value={{
         isLoggedIn: isLoggedIn,
         onLogout: logoutHandler,
-        onLogin: cb_connectWallet
+        onLogin: cb_connectWallet,
+        onUpdateBalance: fetchData
     }}>{props.children}</AuthContext.Provider>
 }

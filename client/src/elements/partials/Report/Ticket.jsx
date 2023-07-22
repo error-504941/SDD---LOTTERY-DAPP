@@ -44,8 +44,8 @@ const Ticket = (props) => {
                         return(
                         <tr key={"ticket-" + row.ticketId}>
                             <td className={classes.date}>
-                                <span className={classes.close}>{moment(row.close).format('DD/MM/YYYY hh:mm:ss')}</span>
-                                {props.type == "all" && <span className={classes.open}>{moment(row.start).format('DD/MM/YYYY hh:mm:ss')}</span>}
+                                <span className={classes.close}>{moment(row.close).format('DD/MM/YYYY HH:mm:ss')}</span>
+                                {props.type == "all" && <span className={classes.open}>{moment(row.start).format('DD/MM/YYYY HH:mm:ss')}</span>}
                             </td>
                             <td><span>{row.ticketId}</span></td>
                             <td><span>{row.price} ETH</span></td>
@@ -54,7 +54,7 @@ const Ticket = (props) => {
                     }) : 
                         <tr key={'not-found'}>
                             <td colSpan={col} className={classes['not-found']}>
-                                <span className={classes['not-found-label']}>Non hai biglietti, effettua una giocata</span>
+                                <span className={classes['not-found-label']}>Il filtro non ha prodotto risultati</span>
                             </td>
                         </tr>}
                 </tbody>

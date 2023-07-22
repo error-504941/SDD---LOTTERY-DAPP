@@ -6,23 +6,20 @@
 
 
 
-  /*palette*/
-  --main-color:#957dad;
-  --second-color:#9f8ab5;
-  --third-color:#aa97bd;
-  --forth-color:  #b4a4c5;
-  --fifth-color: #bfb1cd;
-  --sidebar:  #cabed6;
-  --shadow-color:  #d4cbde;
-  --secondary-color: #dfd8e6;
+  /*palette - Costa Crociere Yellow 2015*/
+  --main-color:#fcc302;
+  --second-color:#fccf34;
+  --third-color:#ffdb34;
+  --fifth-color: #ffed99;
+  --sidebar:  #ffefaf;
   --shadow-secondary:  #e9e5ee;
   --app-background:  #f4f2f6;
   --red: #FF0000;
   --dark-red: #e60000;
 
-  --btn-color: #C37DC7;
-  --btn-over: #d9aedb;
-
+  --btn-color: #fcc91b;
+  --btn-over: #fddb67;
+  --btn-disabled :#ffefaf;
 
   --font-style: 'Source Code Pro', monospace;
 

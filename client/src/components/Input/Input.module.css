@@ -12,14 +12,13 @@
     line-height: 46px;
     padding: 0 35px;
 }
-
-input {
+.radio-btn input {
     display: none;
     position: absolute;
     top: 10px;
 }
 
-input:checked + label{
+.radio-btn input:checked + label{
     background: var(--btn-color);
-    color: white;
+    color: black;
 }

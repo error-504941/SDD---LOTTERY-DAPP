@@ -5,6 +5,7 @@ import {
   lotteryDate, 
   getTotalTicketsV2,
   ownerInformationLottery,
+  TicketGeneralInfo,
   getTickets } from '../contracts/LotteryContract';
 
 export const useLotteryStatus = create((set) => ({
@@ -77,3 +78,19 @@ export const useOwnerReport = create((set) =>({
       }
       ))})
     }))
+
+    export const useTicketGeneralInfo = create((set) =>({
+      loading:true,
+      price: 1,
+      duration: 10,
+      numLotteries: '--',
+      updateLotteryTicket:() => TicketGeneralInfo().then(value =>{set((state) => (
+        {
+          loading: false,
+          price: value.price,
+          duration: value.duration,
+          numLotteries:value.numLotteries
+        }
+        ))})
+    }));
+

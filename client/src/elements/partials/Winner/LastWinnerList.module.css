@@ -2,7 +2,7 @@
 h3 {
     font-size: 14px;
     background: var(--second-color);
-    color: #fff;
+    color: black;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -25,7 +25,7 @@ h3 {
 .list_header{
     font-weight: bold;
     background: var(--sidebar);
-    color: #fff;
+    color: black;
     border-top: 1px solid var(--sidebar);
     border-bottom: 1px solid var(--sidebar);
 }

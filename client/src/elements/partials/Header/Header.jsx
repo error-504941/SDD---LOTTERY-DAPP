@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from '../../../components/Button/Button'
 import classes from './Header.module.css'
 import Modal from '../../../components/Modal/Modal'
@@ -19,10 +19,14 @@ const Header = (props) => {
         setParam(param);
     }
 
+
     const mobile = isMobile();
     const onCloseHandler = () =>{
        setOpenModal(false);
     }
+
+ 
+
     let balance = +ctx.isLoggedIn.balance;
     let account = ctx.isLoggedIn.address.substring(0, 10);
     return (

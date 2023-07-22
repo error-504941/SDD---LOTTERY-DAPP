@@ -15,6 +15,7 @@ const UserTab = (props) => {
                 <Input
                     id="ticket-filter-all"
                     name="ticket-filter"
+                    type="radio"
                     onChange={onChangeHandler}
                     checked ={input == "all"}
                     value='all'
@@ -22,6 +23,7 @@ const UserTab = (props) => {
                 <Input
                     id="ticket-filter-win"
                     name="ticket-filter"
+                    type="radio"
                     onChange={onChangeHandler}
                     value="win"
                     checked ={input == "win"}

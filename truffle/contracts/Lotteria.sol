@@ -4,9 +4,9 @@ pragma solidity >=0.4.22 <0.9.0;
 contract Lotteria {
 //-------------------------------------Constant--------------------------------------------------
 
-    uint256 public constant duration = 10 minutes;
+    uint256 public duration = 10 minutes;
     uint256 public constant ticketCommission = 0.01 ether;
-    uint256 public constant  ticketPrice = 1 ether;
+    uint256 public ticketPrice = 1 ether;
 
 //------------------------------------variable---------------------------------------------------- 
     address public owner;
@@ -67,11 +67,28 @@ contract Lotteria {
         numLotteries = 0;
     }
 
-function setStateLottery() public onlyOwner{
+function setStateLottery(uint256 _duration, uint256 _price) public onlyOwner{
         require(
             lottery_state == LOTTERY_STATE.CLOSED,
             "Can't start a new lottery yet!"
         );
+      
+        if(_duration >= 5  && _duration <= 60){
+            duration = (_duration * 1 minutes);
+        }
+        else
+        {
+             duration = 10 minutes;
+        }
+
+        if(_price > 0 && _price <= 5){
+            ticketPrice = (_price * 1 ether);
+        }
+        else
+        {
+            ticketPrice = 1 ether;
+        }
+
         lottery_state = LOTTERY_STATE.OPEN;
         expiration = block.timestamp + duration;
         startLottery = block.timestamp;
@@ -81,8 +98,8 @@ function setStateLottery() public onlyOwner{
    
 
 //----------------------------------------MAIN-------------------------
-    function enter() external payable notOwner{       
-        require(msg.value ==  ticketPrice, "1 ether il requisito per partecipare");
+    function enter() public payable notOwner{       
+        require(msg.value ==  ticketPrice, "l'ether richiesto per partecipare non valido");
         require(msg.sender != address(0), "Sender address must be valid"); 
         require(lottery_state == LOTTERY_STATE.OPEN);
         require(block.timestamp < expiration, "the lottery expired");
@@ -110,10 +127,10 @@ function setStateLottery() public onlyOwner{
         bytes32 randomTicketId =  generateTicketId();
         _internalTicketList.push(
             ActiveTicket({
-                player:msg.sender, 
-                startData:block.timestamp, 
-                endDate:expiration,
-                ticketId:randomTicketId,
+                player: msg.sender, 
+                startData: block.timestamp, 
+                endDate: expiration,
+                ticketId: randomTicketId,
                 price: ticketPrice
             })
         );
@@ -155,7 +172,7 @@ function setStateLottery() public onlyOwner{
                 {   endDate: expiration ,
                     ticketId: ticketID,
                     price: ticketPrice,
-		    winning:winningTicket
+		            winning:winningTicket
                 });
 
         WinningTicket[] storage  _internalTicketList = winningTicketMap[newWinner];

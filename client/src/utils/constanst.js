@@ -1,0 +1,1 @@
+export const ttl = 1200000; //20 minuti

@@ -82,7 +82,7 @@
 }
 .bannerLabel:before{
     content: "Buy to Win";
-    color: white;
+    color: black;
     font-weight: 600;
     font-size: 20px;
     text-align: center;
@@ -101,7 +101,7 @@
     .cardsCounter{
         padding: 30px 70px;
         position: relative;
-        top: -650px;
+        top: -560px;
     }
     .collottery{
         position: relative;

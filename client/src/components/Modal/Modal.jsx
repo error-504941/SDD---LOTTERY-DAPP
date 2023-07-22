@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Modal.module.css';
-import Button from '../Button/Button';
 
 import  ReactDOM  from 'react-dom';
 
@@ -33,7 +32,7 @@ const ModalOverlay = props =>{
 
     className.push(size);
 
-    if(props.type == undefined){
+    if(props.type === undefined){
         className.push(classes.default);
     }
     else

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "host": "webpack serve --host 0.0.0.0"
   },
   "dependencies": {
     "@metamask/detect-provider": "^2.0.0",

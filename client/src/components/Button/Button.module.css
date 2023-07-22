@@ -5,7 +5,7 @@
       letter-spacing: 0;
       text-transform: capitalize;
       white-space: nowrap;
-      color: #fff;
+      color: black;
       background: var(--btn-color);
       border-radius: 25px;
       line-height: 46px;
@@ -14,8 +14,8 @@
   
   .button:hover,
   .button:active {
-    background: #6f6c6c;
-    border-color:  #6f6c6c;
+    background: var(--btn-over);
+    border-color:  var(--btn-over);
   }
   
   .button:focus {
@@ -26,9 +26,9 @@
   button:focus:disabled,
   button:hover:disabled,
   button:active:disabled {
-    background: #6f6c6c;
-    border-color: #6f6c6c;
-    color: white;
+    background:var(--btn-disabled);
+    border-color: var(--btn-disabled);
+    color: black;
     cursor: not-allowed;
   }
   

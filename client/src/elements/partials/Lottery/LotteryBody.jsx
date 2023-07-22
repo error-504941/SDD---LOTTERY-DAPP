@@ -11,6 +11,7 @@ import Wrapper from '../../../components/Helpers/Wrapper'
 import { useLotteryBody, useTicketUser } from '../../../store/redux-lottery';
 
 const LotteryBody = () => {
+    
     const [openModal, setOpenModal] = useState(false);
     const [response, setResponse] = useState({
         message: '',
@@ -27,9 +28,9 @@ const LotteryBody = () => {
 
 
     const ctx = useContext(AuthContext);
-    let startDate = moment(stateLotteryBody.start).format('DD/MM/YYYY hh:mm:ss');
-    let endDate =  moment(stateLotteryBody.expiration).format('DD/MM/YYYY hh:mm:ss');
-    let message = "La lotteria si è conclusa attendere l'inizio della prossima";
+    let startDate = moment(stateLotteryBody.start).format('DD/MM/YYYY HH:mm:ss');
+    let endDate =  moment(stateLotteryBody.expiration).format('DD/MM/YYYY HH:mm:ss');
+    let message = "La lotteria si è conclusa attendere l'estrazione e l'inizio della prossima";
 
     let controlBtn = (ctx.isLoggedIn.connect &&  !ctx.isLoggedIn.owner && (stateLotteryBody.expiration > new Date()));
     let dateValid = stateLotteryBody.expiration > new Date();
@@ -40,30 +41,43 @@ const LotteryBody = () => {
         }
         enterLottery().then(value =>{
             setOpenModal(true);
-            setResponse(value);
+            if(value != undefined){
+                setResponse(value);
+            }else{
+                let resp = {
+                    message: 'Transazione annullata',
+                    code: '-1'
+                }
+                setResponse(resp);
+            }
             updateLottery();
             updateTicket();
+            ctx.onUpdateBalance();
          });
     }
+    console.log(response);
     return (
         <Wrapper>
             {openModal &&  
-                <Message title="Acquisto biglietto" onClose={()=>{setOpenModal(false)}} message={response.message}/> }
+                <Message title="Notifica di acquisto biglietto" onClose={()=>{setOpenModal(false)}} message={response.message}/> }
             <div className={classes['lottery-content']}>
             <div className={classes['lottery-header']}>
                 <img src={banner}></img>
             </div>
             {stateLotteryBody.loading && <Loader/>}
-            {!stateLotteryBody.loading && <div>
+            {!stateLotteryBody.loading && 
+            <div>
                 <div className={classes['lottery-body']}>
                     <div className={classes['lottery-date']}>
                         <span>{startDate}</span>
                         <span>{endDate}</span>
                     </div>
-                <div className={classes['flex-center']}>
-                    <span className={classes.label}>Numero ticket acquistati</span>
-                    <span className={classes.number}>{stateLotteryBody.numTicket}</span>
-                </div>
+                    {dateValid && 
+                        <div className={classes['flex-center']}>
+                            <span className={classes.label}>Numero ticket acquistati</span>
+                            <span className={classes.number}>{stateLotteryBody.numTicket}</span>
+                        </div>
+                    }
                 </div>
                 <div className={classes['flex-center']}>
                 {controlBtn && <Button className={classes.cta} onClick={buyTicket}>Compra</Button>}

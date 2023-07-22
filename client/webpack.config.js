@@ -12,8 +12,9 @@ module.exports = {
   },
   resolve: { extensions },
   devServer: {
+   // host: '0.0.0.0',
     client: {
-      overlay: false,
+      overlay: true,
     },
   },
   module: {
