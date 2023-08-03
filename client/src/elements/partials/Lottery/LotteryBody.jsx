@@ -59,7 +59,7 @@ const LotteryBody = () => {
     return (
         <Wrapper>
             {openModal &&  
-                <Message title="Notifica di acquisto biglietto" onClose={()=>{setOpenModal(false)}} message={response.message}/> }
+                <Message title="Notifica di acquisto biglietto" onClose={()=>{setOpenModal(false)}} response={response}/> }
             <div className={classes['lottery-content']}>
             <div className={classes['lottery-header']}>
                 <img src={banner}></img>

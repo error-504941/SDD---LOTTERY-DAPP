@@ -60,8 +60,9 @@
 }
 
 .smallImage img{
-    width: 230px;
+    width: 260px;
     border-radius: 1rem;
+    height: 230px;
 }
 
 .smallBanner img{

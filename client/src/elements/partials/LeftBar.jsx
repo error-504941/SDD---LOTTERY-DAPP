@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import SimpleCard from '../../components/Cards/SimpleCard';
 import classes from './Content.module.css'
 import InfoLottery from '../partials/Lottery/InfoLottery'
-import winLottery from '../../assets/win.jpg'
+import winLottery from '../../assets/iconLottery.png'
 import daily from '../../assets/daily.jpeg'
 import { isMobile } from '../../utils/checkDevice';
 const LeftBar = (props) => {

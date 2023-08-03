@@ -1,5 +1,7 @@
 .align{
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 .title{
     color: black;
@@ -9,4 +11,7 @@
 }
 .label{
     color: black;
+    line-height: 1.5;
+    position: relative;
+    top:-30px;
 }

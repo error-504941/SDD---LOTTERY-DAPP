@@ -51,8 +51,10 @@ export const AuthContexProvider = (props) =>{
                 // EIP-1193 userRejectedRequest error
                 // If this happens, the user rejected the connection request.
                 console.log('Please connect to MetaMask.');
-                } else {
-                console.error(err);
+                } else if(err.code === -3202) {
+                     window.location.reload();
+                }else{
+                    console.log(err);
                 }
                 });
         }else {
@@ -106,18 +108,18 @@ export const AuthContexProvider = (props) =>{
             if(!connect){
                 return;
             }
-            window.ethereum.request({method: "eth_accounts",});
-            const provider = new BrowserProvider(window.ethereum);
-            const signer = await provider.getSigner();
-
 
             const item = JSON.parse(connect);
-            console.log(item);
             const now = new Date();
             if(now.getTime() > item.expiry){
                 localStorage.removeItem('isLoggedIn');
                 return;
             }
+            
+            window.ethereum.request({method: "eth_accounts",});
+            const provider = new BrowserProvider(window.ethereum);
+            const signer = await provider.getSigner();
+
             
             if(signer.address != undefined &&  item.value == 1){
                 getUserContractInfo().then((response) =>{ 

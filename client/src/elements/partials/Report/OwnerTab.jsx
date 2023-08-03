@@ -79,7 +79,8 @@ const OwnerTab = () => {
                 if(result.status){
                     setAdminResult(prev =>{
                         return({
-                            message: "Abbiamo un vincitore",
+                            message: "Complementi abbiamo un vincitore!",
+                            submessage : "La lotteria si è chiusa con successo.",
                             code: 200,
                             type:"success"
                         });
@@ -160,7 +161,7 @@ const OwnerTab = () => {
                         title="Esito operazione" 
                         type={adminResult.type} 
                         onClose={closeMessage} 
-                        message={adminResult.message}/>
+                        response={adminResult}/>
                 }
             </div>}
         </div>
