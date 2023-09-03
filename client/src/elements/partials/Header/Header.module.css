@@ -1,0 +1,167 @@
+ .innerHeader{
+    background: var(--main-color) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.logoApp{
+  margin-left: 26px;
+}
+.logoApp img{
+  border-radius: 50%;
+  height: 70px;
+}
+
+.flex-row{
+  display: flex; 
+    flex-direction: row;
+}
+.flex {
+    display: flex; 
+    flex-direction: row;
+    justify-content: end;
+}
+
+.rightSide{
+    display: flex;
+    justify-content: space-between;
+    border-left: 2px solid var(--border-color); 
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.userwrap, .amountwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 20px;
+    font-size: 17px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  .amountvalue{
+    margin: 0 6px;
+  }
+
+  .userwrap i {
+    width: 40px;
+  }
+  
+  .userwrap p {
+    color: black;
+    font-size: 33px;
+  }
+
+  .amountlabel{
+    color: grey;
+    font-size: 17px;
+  }
+  .amountlabel{
+    color: black;
+    font-size: 17px;
+  }
+
+
+
+ .gearButton {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+ .btnLogin{
+  margin-right: 50px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  height: 50px;
+  padding: 0 60px;
+  background-color: #fff;
+  color: black;
+
+} 
+
+
+  .userConnect {
+    display: flex;
+    justify-content: end;
+  }
+ 
+.sup{
+  position: relative;
+  top: -8px;
+  background: var(--main-color);
+  color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+.sup span{
+  position: relative;
+  font-size: 13px;
+  font-weight: bold;
+  top: 2px;
+}
+
+.icon{
+  font-size: 24px !important;
+}
+.sideBorder{
+  border-left: 3px solid var( --third-color);
+  margin: 0 0 0 7px;
+}
+
+.group{
+    margin: 17px;
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+} 
+
+@media only screen and (max-device-width: 1000px) {
+
+  .btnLogin{
+    margin-right: 20px;
+    margin-top: 20px;
+    height: 39px;
+    padding: 0 39px;
+    background-color: #fff;
+    color: black;
+    font-size: 19px;
+  }
+  .userIconSmall{
+    font-size: 10px;
+  }
+  .userwrap, .amountwrap{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 20px;
+    font-size: 17px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .amountvalue{
+    margin: 0 6px;
+    font-size: 10px;
+  }
+  .userwrap i {
+    width: auto;
+  }
+
+
+}

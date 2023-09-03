@@ -1,0 +1,16 @@
+.counter-container{
+    font-family: var(--font-style);
+    font-weight: 900;
+    position: relative;
+    font-size: 65px;
+}
+
+
+.counter-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,73 @@
+.title{
+    color: black;
+    position: relative;
+    bottom: 4rem;
+}
+.subtitle{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.position{
+    position: relative;
+    bottom: 4rem;
+}
+.action{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+.btn{
+    position: relative;
+    right: 8px;
+    top: 90px;
+}
+
+.message{
+    text-transform:none;
+    font-size: 17px;
+    color: black;
+}
+.date-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-around;
+}
+.date span{
+    color: black;
+    font-family: var(--font-style);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: 15px;
+    justify-content: space-evenly;
+
+}
+
+.label span{
+    color: black;
+    font-family: var(--font-style);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media only screen and (max-device-width: 1000px) {
+    .date-container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .label{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        
+    }
+}

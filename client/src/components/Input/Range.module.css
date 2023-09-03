@@ -1,0 +1,11 @@
+
+label{
+    border-radius: 10px;
+    padding: 0 13px;
+    border: transparent;
+    background: var(--btn-color);
+    color: black;
+    margin: 20px 20px;
+    position: relative;
+    top: -6px;
+  }

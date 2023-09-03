@@ -1,0 +1,35 @@
+.color{
+    background: var(--forth-color);
+}
+
+
+.infoList{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px 2px;
+}
+
+li span {
+    font-family: var(--font-style);
+    font-size: 12px;
+}
+
+.bold{
+    font-weight: bold;
+}
+.small{
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.small-alert{
+    font-size: 12px;
+    color:  var(--second-color);
+    text-decoration: underline;
+    position: relative;
+    left: 50px;
+    bottom: -3px;
+}

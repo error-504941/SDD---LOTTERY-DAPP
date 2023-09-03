@@ -1,0 +1,17 @@
+.align{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    color: black;
+    position: relative;
+    top: -50px;
+
+}
+.label{
+    color: black;
+    line-height: 1.5;
+    position: relative;
+    top:-30px;
+}
