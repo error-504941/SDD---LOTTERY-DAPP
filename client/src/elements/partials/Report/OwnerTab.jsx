@@ -99,7 +99,11 @@ const OwnerTab = () => {
                 updateStatus();
                 updateLottery();
                 setOpenTooltip(true);
-                lotteryTicketUpdate();
+               // lotteryTicketUpdate();
+                const timer = setTimeout(() =>{
+                    lotteryTicketUpdate();
+                }, 1000);
+                //clearTimeout(timer);
                 ctx.onUpdateBalance();
 
             }catch(error)
