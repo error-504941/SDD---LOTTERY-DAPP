@@ -17,6 +17,7 @@ export const lotteryContract =  new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADD
  * @returns balance
  */
 
+
 export const lotteryState = async() =>{
    return await lotteryContract.methods.lottery_state().call();
 }
